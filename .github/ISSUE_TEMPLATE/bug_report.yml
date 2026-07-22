@@ -1,0 +1,43 @@
+name: Bug report
+description: Report incorrect output, a crash, or another reproducible problem.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to report a problem. Remove tokens and private data before submitting.
+  - type: input
+    id: repository
+    attributes:
+      label: Repository tested
+      description: Which public owner/repo did you inspect?
+      placeholder: octocat/Hello-World
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js version
+      placeholder: v20.20.0
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: Paste the command you ran, with tokens removed.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      description: Include the error or incorrect output and enough detail to reproduce it.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
