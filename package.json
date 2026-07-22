@@ -1,0 +1,17 @@
+{
+  "name": "oss-pulse",
+  "version": "0.1.0",
+  "description": "Dependency-free GitHub maintenance health report for open-source maintainers.",
+  "type": "module",
+  "bin": {
+    "oss-pulse": "src/cli.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/cli.mjs"
+  },
+  "license": "MIT"
+}
