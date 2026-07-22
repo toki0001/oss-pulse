@@ -8,7 +8,7 @@
 | --- | ---: |
 | Stars | 0 |
 | Forks | 0 |
-| Open issues sampled | 2 |
+| Open issues sampled | 1 |
 | Open PRs sampled | 0 |
 | Latest release | — |
 | Latest commit | 2026-07-22 |
