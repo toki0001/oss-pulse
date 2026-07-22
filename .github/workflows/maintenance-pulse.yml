@@ -1,0 +1,35 @@
+name: Maintenance pulse
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Generate maintenance report
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node src/cli.mjs "$GITHUB_REPOSITORY" --days 30 > oss-pulse-report.md
+      - name: Add report to workflow summary
+        run: cat oss-pulse-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: oss-pulse-report
+          path: oss-pulse-report.md
+          retention-days: 30
