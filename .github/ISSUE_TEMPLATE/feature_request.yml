@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a focused improvement for OSS maintenance reporting.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Maintenance problem
+      description: What repeated maintainer task or blind spot should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the smallest useful change and an example output if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What do you do today instead?
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This can work without storing credentials or private repository data.
+          required: true
